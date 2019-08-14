@@ -78,6 +78,8 @@ class Contact extends Controller
     public function edit($id)
     {
         //
+        $data = ModelKontak::where('id', $id)->get();
+        return view('Kontak_edit', compact('data'));
     }
 
     /**
@@ -90,6 +92,21 @@ class Contact extends Controller
     public function update(Request $request, $id)
     {
         //
+        $this->validate($request, [
+            'nama' => 'required',
+            'email' => 'required',
+            'nohp' => 'required',
+            'alamat' => 'required',
+        ]);
+
+        $data = ModelKontak::where('id', $id)->first();
+        $data->nama = $request->nama;
+        $data->email = $request->email;
+        $data->nohp = $request->nohp;
+        $data->alamat = $request->alamat;
+        $data->save();
+
+        return redirect()->route('Kontak.index')->with('alert_massage', 'Berhasil mengubah data!');
     }
 
     /**

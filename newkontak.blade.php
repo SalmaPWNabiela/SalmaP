@@ -194,7 +194,11 @@
           <!-- Page Heading -->
           <h1 class="h3 mb-2 text-gray-800">Tables</h1>
           <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below. For more information about DataTables, please visit the <a target="_blank" href="https://datatables.net">official DataTables documentation</a>.</p>
-
+            @if(Session::has('alert_massage'))
+                <div class="alert alert-success">
+                    <strong>{{ Session::get('alert_massage') }}</strong>
+                </div>
+            @endif
           <!-- DataTales Example -->
           <div class="card shadow mb-4">
             <div class="card-header py-3">
@@ -217,14 +221,14 @@
                     </tr>
                   </thead>
                   <tfoot>
-                    <tr>
+                    <!-- <tr>
                         <th>No.</th>
                         <th>Nama</th>
                         <th>Email</th>
                         <th>No. HP</th>
                         <th>Alamat</th>
                         <th>Aksi</th>
-                    </tr>
+                    </tr> -->
                   </tfoot>
                   <tbody>
                     @php $no = 1; @endphp
@@ -240,6 +244,7 @@
                                     {{ csrf_field() }}
                                     {{ method_field('DELETE') }}
                                     <a href="{{ route('Kontak.edit',$datas->id) }}" class="btn btn-sm btn-primary">Edit</a>
+                                    
                                     <button class="btn btn-sm btn-danger" type="submit" onclick="return confirm('Yakin ingin menghapus data?')">Delete</button>
                                 </form>
                             </td>

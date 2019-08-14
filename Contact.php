@@ -101,5 +101,9 @@ class Contact extends Controller
     public function destroy($id)
     {
         //
+        $data = ModelKontak::where('id', $id)->first();
+        $data->delete();
+
+        return redirect()->route('Kontak.index')->with('alert_massage', 'Berhasil menghapus data!');
     }
 }

@@ -104,3 +104,7 @@ Route::get('/logout','login@logout');
 Route::resource('/satpam', 'Satpam');
 
 Route::resource('/kabupaten', 'kabupaten');
+
+Route::resource('/penjualan', 'penjualan');
+Route::resource('/barang', 'barang');
+Route::resource('/pembelian', 'pembelian');

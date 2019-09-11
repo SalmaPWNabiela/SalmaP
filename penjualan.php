@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\ModelPenjualan;
+use App\ModelBarang;
 use Validator;
 
 class penjualan extends Controller
@@ -29,7 +30,8 @@ class penjualan extends Controller
     public function create()
     {
         //
-        return view ('penjualan_create');
+        $data = ModelBarang::all();
+        return view ('penjualan_create', compact('data'));
     }
 
     /**
@@ -52,6 +54,11 @@ class penjualan extends Controller
         $data->jumlah = $request->jumlah;
         $data->total_harga = $request->total_harga;
         $data->save();
+
+        //merubah data dari controller barang.php
+        $dataBeli = ModelBarang::where('kode_barang', $request->kode_barang)->first();
+        $dataBeli->stok = $dataBeli->stok - $request->jumlah;
+        $dataBeli->save();
 
         return redirect()->route('penjualan.index')->with('alert_massage', 'Berhasil menambah data!');
     }

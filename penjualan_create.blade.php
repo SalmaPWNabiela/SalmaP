@@ -16,7 +16,12 @@
                 {{ csrf_field() }}
                 <div class="form-group">
                     <label for="kode_barang">Kode Barang:</table>
-                    <input type="text" class="form-control" id="kode_barang" name="kode_barang">
+                    <select name="kode_barang" class="form-control">
+                        @foreach($data as $datas)
+                            <option value="{{ $datas->kode_barang }}">{{ $datas->kode_barang }} ||
+                            {{ $datas->nama_barang }}</option>
+                        @endforeach
+                    </select>
                 </div>
                 <div class="form-group">
                     <label for="jumlah">Jumlah:</label>

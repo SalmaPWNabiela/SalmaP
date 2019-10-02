@@ -39,12 +39,20 @@
                   <div class="text-center">
                     <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
                   </div>
-                  <form class="user">
+
+                    <div class="body">
+                      @if(Session::has('pesan'))
+                      <div class="alert alert-danger">
+                        {{ Session('pesan') }}
+                      </div>
+                      @endif
+                  <form class="user" id="sign_in" action="{{url('login/cek')}}" method="POST">
+                    {{ csrf_field() }}
                     <div class="form-group">
-                      <input type="email" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Enter Email Address...">
+                      <input type="text" class="form-control form-control-user" name="email" placeholder="Email">
                     </div>
                     <div class="form-group">
-                      <input type="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Password">
+                      <input type="password" class="form-control form-control-user" name="password" placeholder="Password">
                     </div>
                     <div class="form-group">
                       <div class="custom-control custom-checkbox small">
@@ -52,9 +60,9 @@
                         <label class="custom-control-label" for="customCheck">Remember Me</label>
                       </div>
                     </div>
-                    <a href="index.html" class="btn btn-primary btn-user btn-block">
-                      Login
-                    </a>
+                    <button type="submit" class="btn btn-primary btn-user btn-block">
+                      SIGN IN
+                    </button>
                     <hr>
                     <a href="index.html" class="btn btn-google btn-user btn-block">
                       <i class="fab fa-google fa-fw"></i> Login with Google
@@ -63,6 +71,7 @@
                       <i class="fab fa-facebook-f fa-fw"></i> Login with Facebook
                     </a>
                   </form>
+                </div>
                   <hr>
                   <div class="text-center">
                     <a class="small" href="forgot-password.html">Forgot Password?</a>

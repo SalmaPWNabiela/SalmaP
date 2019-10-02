@@ -9,7 +9,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>SB Admin 2 - Meja Saya Bundar</title>
+  <title>SB Admin 2 - Salma</title>
 
   <!-- Custom fonts for this template-->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -43,7 +43,7 @@
       <li class="nav-item active">
         <a class="nav-link" href="index.html">
           <i class="fas fa-fw fa-tachometer-alt"></i>
-          <span>Meja Saya Bundar</span></a>
+          <span>Hallo Salma</span></a>
       </li>
 
       <!-- Divider -->
@@ -93,41 +93,49 @@
       <div class="sidebar-heading">
         Addons
       </div>
+
+      <!-- Nav Item - Pages Collapse Menu -->
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
+          <i class="fas fa-fw fa-folder"></i>
+          <span>Pages</span>
+        </a>
+        <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Login Screens:</h6>
+            <a class="collapse-item" href="login.html">Login</a>
+            <a class="collapse-item" href="register.html">Register</a>
+            <a class="collapse-item" href="forgot-password.html">Forgot Password</a>
+            <div class="collapse-divider"></div>
+            <h6 class="collapse-header">Other Pages:</h6>
+            <a class="collapse-item" href="404.html">404 Page</a>
+            <a class="collapse-item" href="blank.html">Blank Page</a>
+          </div>
+        </div>
+      </li>
+
+      <!-- Nav Item-Kontak -->
+      <?php if(Session::get('hakakses')=="tayo") { ?>
+      <li class="nav-item">
+        <a class="nav-link" href="{{ route('kontak.index') }}">Kontak</a>
+      </li>
+      <?php } ?>
+
+      <!-- Nav Item-Barang -->
+      <li class="nav-item">
+        <a class="nav-link" href="{{ route('barang.index') }}">Barang</a>
+      </li>
+
+      <!-- Nav Item-penjualan -->
+      <li class="nav-item">
+        <a class="nav-link" href="{{ route('penjualan.index') }}">Penjualan</a>
+      </li>
+
+      <!-- Nav Item-pembelians -->
+      <li class="nav-item">
+        <a class="nav-link" href="{{ route('pembelian.index') }}">Pembelian</a>
+      </li>
       
-      <!-- nav Item - kontak -->
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="{{ route('Kontak.index') }}" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-          <i class="fas fa-fw fa-cog"></i>
-            <span>Table Kontak</span>
-        </a>
-      </li>
-
-      <!-- nav Item - barang -->
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="{{ route('barang.index') }}" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-          <i class="fas fa-fw fa-cog"></i>
-            <span>Table Barang</span>
-        </a>
-      </li>
-
-      <!-- nav Item - penjualan -->
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="{{ route('penjualan.index') }}" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-          <i class="fas fa-fw fa-cog"></i>
-            <span>Table Penjualan</span>
-        </a>
-      </li>
-
-      <!-- nav Item - pembelian -->
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="{{ route('pembelian.index') }}" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-          <i class="fas fa-fw fa-cog"></i>
-            <span>Table Pembelian</span>
-        </a>
-      </li>
-
-      <!-- menu logout -->
-      <li><a href="{{url('/logout')}}"><i class="material-icons">input</i>Sign Out</a></li>
 
       <!-- Divider -->
       <hr class="sidebar-divider d-none d-md-block">
@@ -145,8 +153,9 @@
 
       <!-- Main Content -->
       <div id="content">
-        <!-- inilah tempat untuk content -->
-        @yield('content')
+      <!-- Ini tempat content -->
+            <!--aku hanya coba coba coba-->
+            @yield('content')
       </div>
       <!-- End of Main Content -->
 
@@ -206,6 +215,8 @@
   <!-- Page level custom scripts -->
   <script src="js/demo/chart-area-demo.js"></script>
   <script src="js/demo/chart-pie-demo.js"></script>
+
+  <li><a href="{{url('/logout')}}"><i class="material-icons">input<i>Sign Out</a></li>
 
 </body>
 
